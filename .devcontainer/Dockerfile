@@ -11,9 +11,9 @@ ARG USERNAME=node
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
-RUN sudo -u ${USERNAME} apt update
-RUN sudo -u ${USERNAME} apt install snapd 
-RUN sudo -u ${USERNAME} snap install exercism
+RUN apt update
+RUN apt install snapd 
+RUN snap install exercism
 
 # Install elm, elm-test and elm-format
 RUN export DEBIAN_FRONTEND=noninteractive \
