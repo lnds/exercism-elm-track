@@ -11,6 +11,9 @@ ARG USERNAME=node
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
+RUN sudo -u ${USERNAME} apt update && apt install snapd && snap install core
+RUN sudo -u ${USERNAME} snap install exercism
+
 # Install elm, elm-test and elm-format
 RUN export DEBIAN_FRONTEND=noninteractive \
     && sudo -u ${USERNAME} npm install --global \
