@@ -11,7 +11,8 @@ ARG USERNAME=node
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
-RUN sudo -u ${USERNAME} apt update && sudo -u ${USERNAME} apt install snapd && sudo -u ${USERNAME} snap install core
+RUN sudo -u ${USERNAME} apt update
+RUN sudo -u ${USERNAME} apt install snapd 
 RUN sudo -u ${USERNAME} snap install exercism
 
 # Install elm, elm-test and elm-format
