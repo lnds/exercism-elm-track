@@ -12,7 +12,7 @@ ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
 RUN apt update
-RUN apt install snapd 
+RUN apt -y install snapd 
 RUN snap install exercism
 
 # Install elm, elm-test and elm-format
