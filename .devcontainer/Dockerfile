@@ -11,9 +11,13 @@ ARG USERNAME=node
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
-RUN apt update
-RUN apt -y install snapd 
-RUN snap install exercism
+RUN apt update && \
+    apt -y dist-upgrade && \
+    apt -y install wget 
+
+RUN wget https://github.com/exercism/cli/releases/download/v3.0.13/exercism-linux-64bit.tgz && \
+    tar zxvf exercism-linux-64bit.tgz && \
+    mv exercism /usr/local/bin
 
 # Install elm, elm-test and elm-format
 RUN export DEBIAN_FRONTEND=noninteractive \
